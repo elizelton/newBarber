@@ -1,0 +1,29 @@
+<div class="mb-4" [class.w-full]="fullWidth">
+  <label class="block text-sm font-medium"
+         [class.text-gray-500]="disabled || readonly"
+         [class.text-gray-950]="!disabled && !readonly"
+         [class.text-red-500]="control.invalid && control.touched"
+         [class.text-green-500]="control.valid && control.touched"
+         [class.text-gray-300]="control.untouched"
+         *ngIf="label">{{ label }}</label>
+  <input
+    [formControl]="control"
+    [attr.formControlName]="formControlName"
+    [disabled]="disabled"
+    [readonly]="readonly"
+    class="mt-1 p-2 w-full border rounded"
+    [class.border-red-500]="control.invalid && control.touched"
+    [class.border-green-500]="control.valid && control.touched"
+    [class.border-gray-300]="control.untouched"
+    [class.bg-gray-100]="disabled"
+    [class.bg-gray-50]="readonly"
+    [class.bg-red-50]="control.invalid && control.touched"
+    [class.bg-green-50]="control.valid && control.touched"
+    [class.cursor-not-allowed]="disabled || readonly"
+    [class.text-gray-500]="disabled || readonly"
+    [class.text-gray-700]="!disabled && !readonly"
+    [placeholder]="placeholder"
+    [type]="type"
+  />
+  <div *ngIf="errorMessageToShow" class="text-red-500 text-sm mt-1">{{ errorMessageToShow }}</div>
+</div>

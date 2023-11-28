@@ -1,0 +1,13 @@
+<div class="bg-gradient-to-br from-red-700 to-blue-800 flex items-center justify-center h-screen">
+
+  <div class="bg-white p-8 rounded shadow-md w-96">
+    <h1 class="text-2xl font-semibold mb-4">Bem vindo!</h1>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <twinput label="Login" [control]="username" [disableErrorMessage]="true"></twinput>
+      <twinput type="password" label="Senha" [control]="password" [disableErrorMessage]="true"></twinput>
+      <twbutton loadingText="Entrando..." buttonType="submit" [fullWidth]="true" [outline]="false" [loading]="loading">Entrar</twbutton>
+    </form>
+
+  </div>
+</div>

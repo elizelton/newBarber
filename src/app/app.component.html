@@ -1,0 +1,21 @@
+<div class="h-screen max-h-screen">
+<ng-template [ngIf]="isAuthenticated" [ngIfElse]="userLoggedOut" class="h-full">
+  <nav-bar (menuClickedEvent)="changeMenuState()"></nav-bar>
+  <div class="flex h-[calc(100%-3rem)]">
+    <side-nav [hideMenu]="hideMenu"></side-nav>
+    <div class="grow flex overflow-auto h-full">
+      <div class="grow py-5">
+        <div class="p-5">
+          <bread-crumb></bread-crumb>
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #userLoggedOut>
+  <app-login></app-login>
+</ng-template>
+
+</div>

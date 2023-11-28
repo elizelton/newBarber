@@ -1,0 +1,36 @@
+<nav class="bg-gray-600 w-full h-12">
+  <div class="flex flex-wrap items-center justify-between mx-auto ps-2 pe-4 py-1">
+    <a [hidden]="!hideMenu" (click)="menuClicked()" class="cursor-pointer p-1 rounded-lg hover:bg-gray-700 focus:ring-gray-600"><i-lucide size="30" name="menu" class="text-gray-200"></i-lucide></a>
+    <a [hidden]="hideMenu" (click)="menuClicked()" class="cursor-pointer p-1 rounded-lg hover:bg-gray-700 focus:ring-gray-600"><i-lucide size="30" name="gantt-chart" class="text-gray-200"></i-lucide></a>
+    <div class="flex gap-4 items-center">
+      <a class="cursor-pointer p-1.5 rounded-lg hover:bg-gray-700 focus:ring-gray-600"><i-lucide size="20" name="bell" class="text-gray-200"></i-lucide></a>
+
+      <div class="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+        <button (click)="userMenuClicked()" type="button" class="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
+          <a #userMenuButton style="user-select: none" class="hover:scale-105 transition ease-in-out delay-150 cursor-pointer w-8 h-8 rounded-full p-1 text-gray-600 flex justify-center items-center bg-gray-100 text-xl non-selectable">ES</a>
+        </button>
+
+        <div #userDropdownMenu
+             [class.opacity-0]="hideUserMenu"
+             [class.opacity-100]="!hideUserMenu"
+             class="transition-opacity duration-300 z-50 my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-b-lg rounded-l-lg shadow shadow-neutral-400 fixed top-10 right-3.5 md:right-10">
+          <div class="px-6 py-3">
+            <span class="block text-sm text-gray-900">Elizelton Santos</span>
+            <span class="block text-sm text-gray-500 truncate">{{'elizeltonls@gmail.com'}}</span>
+          </div>
+          <ul class="py-2" aria-labelledby="user-menu-button">
+            <li class="cursor-pointer flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 gap-2">
+              <i-lucide size="18" name="settings" class="text-gray-600"></i-lucide>
+              <a>Settings</a>
+            </li>
+            <li (click)="logout()" class="cursor-pointer flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 gap-2">
+              <i-lucide size="18" name="log-out" class="text-gray-600"></i-lucide>
+              <a>Sign out</a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</nav>
